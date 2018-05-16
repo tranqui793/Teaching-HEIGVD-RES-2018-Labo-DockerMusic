@@ -1,12 +1,14 @@
 FROM node:latest
 
-MAINTAINER Oussama Lagha <oussama.lagha@heig-vd.ch>
+MAINTAINER Oussama lagha <oussma.lagha@heig-vd.ch>
 
-
-COPY Musician.js /opt/res/
+#
+# When we build the image, we copy the executable jar in the image file system. 
+#
+COPY src /opt/res/
 
 WORKDIR /opt/res/
 
 RUN npm install
 
-ENTRYPOINT ["node", "/opt/res/Musician.js"]
+ENTRYPOINT ["node", "/opt/res/musician.js"]

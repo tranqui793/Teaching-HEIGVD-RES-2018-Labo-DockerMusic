@@ -1,6 +1,5 @@
 var musicians = [];
 
-/* --------------------- TCP SERVER --------------------------------------------*/
 var net = require('net');
 var servertcp = net.createServer();
 servertcp.on('connection', function (socket) {
@@ -20,9 +19,6 @@ function clearMusicians() {
         }
     }
 }
-/* -----------------------------------------------------------------------------*/
-
-/* --------------------- UDP SERVER --------------------------------------------*/
 
 var dgram = require('dgram');
 var serverudp = dgram.createSocket('udp4');
@@ -40,7 +36,7 @@ serverudp.on('message', function (musician, source) {
 
 });
 
-serverudp.bind(12342, function () {
+serverudp.bind(12345, function () {
     console.log('An auditor join the  group ');
     serverudp.addMembership('239.255.22.5');
 
